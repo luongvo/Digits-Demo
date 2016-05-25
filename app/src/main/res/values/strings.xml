@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Digits-Demo</string>
     <string name="a_demonstration_of_digits_empowers_your_users_to_sign_up_or_sign_in_to_your_app_using_their_phone_numbers">A demonstration of Digits - empowers your users to sign up or sign in to your app using their phone numbers</string>
+    <string name="signed_in_with_phone_number">Signed In with phone number %s</string>
 </resources>

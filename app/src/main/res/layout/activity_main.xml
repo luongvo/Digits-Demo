@@ -17,8 +17,31 @@
         android:text="@string/a_demonstration_of_digits_empowers_your_users_to_sign_up_or_sign_in_to_your_app_using_their_phone_numbers" />
 
     <com.digits.sdk.android.DigitsAuthButton
-        android:id="@+id/auth_button"
+        android:id="@+id/bt_digits_auth"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ln_signed_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/signed_in_with_phone_number" />
+
+        <Button
+            android:id="@+id/bt_sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out" />
+
+    </LinearLayout>
 
 </LinearLayout>
