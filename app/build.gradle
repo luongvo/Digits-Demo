@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 23
@@ -6,10 +7,14 @@ android {
 
     defaultConfig {
         applicationId "vn.luongvo.digits.demo"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        manifestPlaceholders = [FABRIC_API_KEY: System.getenv("FABRIC_API_KEY")]
+        buildConfigField 'String', 'TWITTER_KEY', formString(System.getenv("TWITTER_KEY"))
+        buildConfigField 'String', 'TWITTER_SECRET', formString(System.getenv("TWITTER_SECRET"))
     }
     buildTypes {
         release {
@@ -19,8 +24,19 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
+    compile('com.digits.sdk.android:digits:1.10.3@aar') {
+        transitive = true;
+    }
+}
+
+String formString(String target) {
+    return "\"" + target + "\""
 }
