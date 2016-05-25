@@ -25,11 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         TwitterAuthConfig authConfig = new TwitterAuthConfig(BuildConfig.TWITTER_KEY,
                 BuildConfig.TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
 
+        Digits.getSessionManager().clearActiveSession();
+
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
+        digitsButton.setAuthTheme(R.style.CustomDigitsTheme);
         digitsButton.setCallback(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
